@@ -10,8 +10,24 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            int password = 9846;
+            const int password = 9846;
+            int enter;
 
+
+            Console.Write("Please enter the password: ");
+            enter = int.Parse(Console.ReadLine());
+
+            if (enter == password)
+            {
+                Console.WriteLine("Correct password has been entered.");
+            }
+            else
+            {
+                Console.WriteLine("Wrong password try again.");
+            }
+            Console.WriteLine("Ending simulation");
+            Console.ReadKey();
+            
 
         }
     }
