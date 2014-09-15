@@ -19,10 +19,7 @@ namespace ConsoleApplication1
 
             Console.Write("Ange total summa    : ");
             attbetala = int.Parse(Console.ReadLine());
-
-
-
-            Console.Write("Ange erhållet belopp: ");
+           Console.Write("Ange erhållet belopp: ");
             betalamed = int.Parse(Console.ReadLine());
 
 
