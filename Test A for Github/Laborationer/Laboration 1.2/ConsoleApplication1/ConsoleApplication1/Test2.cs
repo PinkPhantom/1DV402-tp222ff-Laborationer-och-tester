@@ -67,19 +67,6 @@ namespace ConsoleApplication1
 
 
 
-               
-                
-            
-
-
-
-
-
-
-
-
-
-
         }
 
         private static void Answer(double total, int topay)
@@ -113,13 +100,6 @@ namespace ConsoleApplication1
 
 
             back = SplitintoDenominations(back, out femhundra, out hundra, out femtio, out tjugo, out tio, out fem, out enkrona);
-
-
-
-
-
-
-
 
 
 
