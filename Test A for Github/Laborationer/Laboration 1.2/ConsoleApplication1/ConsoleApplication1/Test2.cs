@@ -61,7 +61,8 @@ namespace ConsoleApplication1
                                         return;
                   }
  
-                                total = 0;
+                                total = 2;
+                                topay = 0;
              }
                          while (!exit);
 
