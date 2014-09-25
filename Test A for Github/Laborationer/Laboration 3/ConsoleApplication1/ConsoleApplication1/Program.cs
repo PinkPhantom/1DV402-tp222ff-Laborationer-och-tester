@@ -14,6 +14,26 @@ namespace ConsoleApplication1
 
             int Salaries = 0;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             do
             {
 
@@ -87,10 +107,8 @@ namespace ConsoleApplication1
             int[] paychecks = new int[Salaries];
             int[] sorted = new int[Salaries];
 
-
             for (int i = 0; i < Salaries; i++)
             {
-
 
                 Console.Write("Var god skriv in lön {0}: ", i + 1);
                 paychecks[i] = int.Parse(Console.ReadLine());
@@ -99,8 +117,9 @@ namespace ConsoleApplication1
 
                 sorted[i] = paychecks[i];
 
-
             }
+
+
 
             Array.Sort(sorted);
 
@@ -123,12 +142,12 @@ namespace ConsoleApplication1
             Console.WriteLine("The salary spread was: {0} ", spread);
             Console.WriteLine("--------------------------");
 
-            for (int i = 0; i < sorted.Length; i += 3)
+            for (int i = 0; i < paychecks.Length; i += 3)
             {
-                for (int j = 0; i + j < sorted.Length && j < 3; j++)
+                for (int j = 0; i + j < paychecks.Length && j < 3; j++)
                 {
 
-                    Console.Write("{0,7}", sorted[i + j]);
+                    Console.Write("{0,3}", paychecks[i + j]);
                 }
             }
      
