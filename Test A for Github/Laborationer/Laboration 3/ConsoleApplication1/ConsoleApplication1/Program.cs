@@ -67,9 +67,6 @@ namespace ConsoleApplication1
         private static void Answer(int Salaries)
         {
 
-
-            int numberof;
-
             int total;
 
             int highest;
