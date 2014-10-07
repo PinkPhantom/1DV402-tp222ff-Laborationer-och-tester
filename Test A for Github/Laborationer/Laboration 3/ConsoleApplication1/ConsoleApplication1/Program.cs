@@ -10,6 +10,11 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
+
+
+           // Console.Write("Ange total summa : ");
+           // Salaries = int.Parse(Console.ReadLine());
+
             bool exit = false;
 
             int Salaries = 0;
@@ -40,15 +45,13 @@ namespace ConsoleApplication1
                 while (Salaries < 2)
                 {
 
-                    Console.Write("Ange total summa : ");
-                    Salaries = int.Parse(Console.ReadLine());
-
+                    Salaries = ReadInt();
 
                     if (Salaries < 2)
                     {
                         Console.BackgroundColor = ConsoleColor.Red;
                         Console.ForegroundColor = ConsoleColor.White;
-                        Console.WriteLine("Du måste ange en Summa som är högre än erhållet belopp.");
+                        Console.WriteLine("Du måste Skriva in mer än 2 löner!");
                         Console.ResetColor();
                     }
                     else
@@ -84,6 +87,45 @@ namespace ConsoleApplication1
             while (!exit);
         }
 
+        private static int ReadInt()
+        {
+            string line;
+            int readint;
+
+            do
+            {
+                Console.Write("Ange antal löner som du vill skriva in: ");
+                line = Console.ReadLine();
+
+                try
+                {
+                    readint = Int32.Parse(line);
+                    break;
+                }
+                catch (FormatException)
+                {
+
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("Fel! '{0}' kan inte tolkas som ett heltal.", line);
+                    Console.ResetColor();
+
+
+                }
+                catch (OverflowException)
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("Fel! '{0}' kan inte tolkas som ett heltal.", line);
+                    Console.ResetColor();
+                }
+
+
+            }
+            while (true);
+            return readint;
+        }
+
         private static void Answer(int Salaries)
         {
 
@@ -101,6 +143,10 @@ namespace ConsoleApplication1
 
             int median2;
 
+            int median3;
+
+            int median;
+
             total = 0;
 
 
@@ -111,7 +157,7 @@ namespace ConsoleApplication1
             {
 
                 Console.Write("Var god skriv in lön {0}: ", i + 1);
-                paychecks[i] = int.Parse(Console.ReadLine());
+                paychecks[i] = ReadInt();
 
                 total += paychecks[i];
 
@@ -128,17 +174,33 @@ namespace ConsoleApplication1
             spread = highest - lowest;
             average = total / Salaries;
 
-            median1 = Salaries / 2;
 
-            median2 = sorted[median1];
+            if (Salaries % 2 == 0)
+            {
 
+                median2 = Salaries / 2;
+                median3 = Salaries / 2;
+                --median3;
+                median = sorted[median2] + sorted[median3];
+                median1 = median / 2;
+
+            }
+            else
+            {
+
+                median = Salaries / 2;
+                median1 = sorted[median];
+            }
+
+
+           
 
             Console.WriteLine("Kvitto");
             Console.WriteLine("--------------------------");
             Console.WriteLine("Highest paycheck was: {0} ", highest);
             Console.WriteLine("Lowest paycheck was: {0} " ,lowest);
             Console.WriteLine("Average paycheck was: {0} ", average);
-            Console.WriteLine("The Median paycheck was: {0} ", median2);
+            Console.WriteLine("The Median paycheck was: {0} ", median1);
             Console.WriteLine("The salary spread was: {0} ", spread);
             Console.WriteLine("--------------------------");
 
